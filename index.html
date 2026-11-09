@@ -173,8 +173,8 @@ h2{font-size:30px}
       <p class="lab">Correspondence</p>
       <h2>Send word to <span class="ul">the investigator</span></h2>
       <p class="lead" style="max-width:26em">The full evidence locker is kept on GitHub; the professional record is on LinkedIn.</p>
-      <p class="acts" style="margin-top:26px"><a class="btn" href="https://github.com/SehajModi" target="_blank" rel="noopener">GitHub →</a> <a class="btn" href="https://www.linkedin.com/in/sehaj-modi-011323372/" target="_blank" rel="noopener">LinkedIn →</a> <a class="btn" href="mailto:sehajm.ic.25@nitj.ac.in">Email →</a> <button class="btn o" id="close">Close the file</button></p>
-      <p class="lab" style="margin-top:22px">Official: <a href="mailto:sehajm.ic.25@nitj.ac.in" style="color:inherit;text-transform:none;letter-spacing:.02em">sehajm.ic.25@nitj.ac.in</a></p>
+      <p class="acts" style="margin-top:26px"><a class="btn" href="https://github.com/SehajModi" target="_blank" rel="noopener">GitHub →</a> <a class="btn" href="https://www.linkedin.com/in/sehaj-modi-011323372/" target="_blank" rel="noopener">LinkedIn →</a> <a class="btn" id="mail" href="mailto:sehajm.ic.25@nitj.ac.in" aria-live="polite" style="text-transform:none;letter-spacing:.02em">sehajm.ic.25@nitj.ac.in</a> <button class="btn o" id="close">Close the file</button></p>
+      
       <span class="note" style="margin-top:14px">the game is afoot!</span>
     </section>
   </div>
@@ -202,6 +202,9 @@ var D=[
 {t:"RAG PDF Chatbot",d:"Retrieves relevant passages from uploaded PDFs and answers questions from them.",x:"Applied LLM tooling, built end to end.",k:["RAG","LLMs"]}];
 var dlg=document.getElementById('dlg');
 document.querySelectorAll('.card').forEach(function(b){b.onclick=function(){var x=D[+b.dataset.i];document.getElementById('dl').textContent='Exhibit '+'BCDEFG'[+b.dataset.i];document.getElementById('dt').textContent=x.t;document.getElementById('dd').textContent=x.d;document.getElementById('dx2').textContent=x.x;document.getElementById('dk').innerHTML=x.k.map(function(k){return '<li>'+k+'</li>'}).join('');dlg.showModal?dlg.showModal():dlg.setAttribute('open','')}});
+var ml=document.getElementById('mail');ml.addEventListener('click',function(){var t='sehajm.ic.25@nitj.ac.in',o=ml.textContent;function done(){ml.textContent='Copied ✓ paste it in your mail app';setTimeout(function(){ml.textContent=o},2800)}
+function fb(){var x=document.createElement('textarea');x.value=t;x.style.cssText='position:fixed;opacity:0';document.body.appendChild(x);x.select();try{document.execCommand('copy');done()}catch(e){}document.body.removeChild(x)}
+if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done,fb)}else fb()});
 var by=document.querySelector('.by');if(by&&!RM){var full=by.textContent;by.setAttribute('aria-label',full);by.style.minHeight=by.offsetHeight+'px';by.textContent='';by.classList.add('t');var ci=0,iv=setInterval(function(){by.textContent=full.slice(0,++ci);if(ci>=full.length){clearInterval(iv);setTimeout(function(){by.classList.remove('t')},1500)}},22)}
 document.getElementById('dx').onclick=function(){dlg.close()};
 dlg.addEventListener('click',function(e){if(e.target===dlg)dlg.close()});
